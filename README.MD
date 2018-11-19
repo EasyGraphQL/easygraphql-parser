@@ -45,7 +45,7 @@ console.log(schema)
 ```
 
 ### Result
-```json
+```js
 { 
   Family: { 
     type: 'ObjectType',
