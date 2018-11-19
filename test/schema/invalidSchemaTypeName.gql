@@ -1,0 +1,29 @@
+enum Location {
+  Location1
+  Location2
+  Location3
+}
+
+type School {
+  name: String!
+  users: [Student]!
+  location: Location!
+}
+
+type School {
+  students: [Student]!
+}
+
+input CreateSchoolInput {
+  name: String!
+  location: String!
+}
+
+type Query {
+  getSchoolByLocation(location: String!): School!
+  getSchools: [School]!
+}
+
+type Mutation {
+  createSchool(input: CreateSchoolInput!): School!
+}

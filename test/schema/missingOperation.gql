@@ -1,0 +1,22 @@
+type Student {
+  email: String!
+  username: String!
+  fullName: String!
+}
+
+input StudentInput {
+  email: String!
+  username: String!
+  fullName: String!
+  password: String!
+}
+
+type Mutation {
+  createStudent(input: StudentInput!): Student
+  createStudents(input: [StudentInput]!): [Student]!
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+}

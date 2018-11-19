@@ -1,0 +1,58 @@
+enum Location {
+  Location1
+  Location2
+  Location3
+}
+
+type School {
+  name: String!
+  users: [Student]!
+  location: Location!
+}
+
+input CreateSchoolInput {
+  name: String!
+  location: String!
+}
+
+type SchoolQuery {
+  getSchoolByLocation(location: String!): School!
+  getSchools: [School]!
+}
+
+type SchoolMutation {
+  createSchool(input: CreateSchoolInput!): School!
+}
+
+schema {
+  query: SchoolQuery
+  mutation: SchoolMutation
+}
+
+type Student {
+  email: String!
+  username: String!
+  fullName: String!
+}
+
+input StudentInput {
+  email: String!
+  username: String!
+  fullName: String!
+  password: String!
+}
+
+type StudentQuery {
+  getStudentByUsername(username: String!, name: String!): Student
+  getStudents: [Student]!
+}
+
+type StudentMutation {
+  createStudent(input: StudentInput!): Student
+  createStudents(input: [StudentInput]!): [Student]!
+}
+
+schema {
+  query: StudentQuery
+  mutation: StudentMutation
+}

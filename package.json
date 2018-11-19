@@ -1,0 +1,47 @@
+{
+  "name": "easygraphql-parser",
+  "version": "0.0.1",
+  "description": "Parse GraphQL Schema",
+  "main": "index.js",
+  "scripts": {
+    "test": "nyc --check-coverage --lines 95 mocha",
+    "standard": "standard",
+    "standard-fix": "standard --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run standard",
+      "pre-push": "npm run test"
+    }
+  },
+  "keywords": [
+    "nodejs",
+    "graphql",
+    "parser",
+    "schema"
+  ],
+  "homepage": "https://github.com/EasyGraphQL/easygraphql-parser",
+  "author": {
+    "name": "EasyGraphQL",
+    "url": "https://github.com/EasyGraphQL"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EasyGraphQL/easygraphql-parser"
+  },
+  "bugs": {
+    "url": "https://github.com/EasyGraphQL/easygraphql-parser/issues"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "graphql": "^14.0.2",
+    "lodash.mergewith": "^4.6.1"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0",
+    "nyc": "^13.0.1",
+    "standard": "^12.0.0",
+    "husky": "^1.1.3"
+  }
+}
