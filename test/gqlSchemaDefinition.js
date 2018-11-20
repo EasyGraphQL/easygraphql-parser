@@ -94,6 +94,10 @@ describe('Parse GraphQL schema arr into an object', () => {
     it('Schema should have the Query property', () => {
       expect(schema).to.exist
       expect(schema.Query).to.exist
+      expect(schema.SearchResult).to.exist
+      expect(schema.SearchResult.types).to.includes('School')
+      expect(schema.SearchResult.types).to.includes('Student')
+      expect(schema.SearchResult.types).to.includes('Location')
     })
   })
 })

@@ -4,6 +4,8 @@ enum Location {
   Location3
 }
 
+union SearchResult = School | Student | Location
+
 type School {
   name: String!
   users: [Student]!
@@ -18,6 +20,7 @@ input CreateSchoolInput {
 extend type Query {
   getSchoolByLocation(location: String!): School!
   getSchools: [School]!
+  search(name: String!): [SearchResult]!
 }
 
 extend type Mutation {
