@@ -7,7 +7,7 @@ type Family {
 type Me {
   id: ID!
   email: String
-  username: [String]!
+  username: [String!]!
   fullName: String!
   result: Float
   phone: [Int]!
@@ -26,5 +26,6 @@ type User {
 
 type Query {
   getMe: Me
+  getUsers: [User!]!
   getUserByUsername(username: String!, id: Int!): User
 }
