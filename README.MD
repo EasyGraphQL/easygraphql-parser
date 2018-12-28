@@ -24,7 +24,7 @@ To get started with the mocks, you might need to follow the next steps:
 ```gql
 type Family {
   name: String!
-  ages: [Int]!
+  ages: [Int!]!
 }
 
 type Query {
@@ -58,14 +58,16 @@ console.log(schema)
         arguments: [],
         noNull: true,
         isArray: false,
-        type: 'String' 
+        noNullArrayValues: false
+        type: 'String'
       },
       { 
         name: 'ages',
         arguments: [],
         noNull: true,
         isArray: true,
-        type: 'Int' 
+        noNullArrayValues: true
+        type: 'Int'
       } 
     ],
     values: [] 
@@ -79,7 +81,8 @@ console.log(schema)
         arguments: [],
         noNull: false,
         isArray: false,
-        type: 'Family' 
+        noNullArrayValues: false
+        type: 'Family'
       } 
     ],
     values: [] 
