@@ -6,7 +6,7 @@
   <br>
 </h1>
 
-[![Coverage Status](https://coveralls.io/repos/github/EasyGraphQL/easygraphql-parser/badge.svg?branch=master)](https://coveralls.io/github/EasyGraphQL/easygraphql-parser?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/EasyGraphQL/easygraphql-parser/badge.svg?branch=master)](https://coveralls.io/github/EasyGraphQL/easygraphql-parser?branch=master) [![Greenkeeper badge](https://badges.greenkeeper.io/EasyGraphQL/easygraphql-parser.svg)](https://greenkeeper.io/)
 
 easygraphql-parser is a node library used to parse the GraphQL schema into a JS object.
 
