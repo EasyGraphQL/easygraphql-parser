@@ -7,7 +7,7 @@
     "test": "nyc --check-coverage --lines 95 mocha",
     "standard": "standard",
     "standard-fix": "standard --fix",
-    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
+    "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls"
   },
   "husky": {
     "hooks": {
@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "chai": "^4.1.2",
-    "codecov": "^3.1.0",
+    "coveralls": "^3.0.2",
     "husky": "^1.1.3",
     "mocha": "^5.2.0",
     "nyc": "^13.0.1",
