@@ -7,7 +7,7 @@
     "test": "nyc --check-coverage --lines 95 mocha",
     "standard": "standard",
     "standard-fix": "standard --fix",
-    "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls"
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "husky": {
     "hooks": {
