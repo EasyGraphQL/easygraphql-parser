@@ -59,7 +59,8 @@ console.log(schema)
         noNull: true,
         isArray: false,
         noNullArrayValues: false
-        type: 'String'
+        type: 'String',
+        isDeprecated: false
       },
       { 
         name: 'ages',
@@ -67,7 +68,8 @@ console.log(schema)
         noNull: true,
         isArray: true,
         noNullArrayValues: true
-        type: 'Int'
+        type: 'Int',
+        isDeprecated: false
       } 
     ],
     values: [] 
@@ -82,7 +84,8 @@ console.log(schema)
         noNull: false,
         isArray: false,
         noNullArrayValues: false
-        type: 'Family'
+        type: 'Family',
+        isDeprecated: false
       } 
     ],
     values: [] 

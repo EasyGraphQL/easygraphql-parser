@@ -6,7 +6,7 @@
 const { Kind } = require('graphql')
 const { expect } = require('chai')
 const schemaParser = require('../lib/schemaParser')
-const schemaCode = require('./schema-js')
+const schemaCode = require('./schema-json/schema')
 
 describe('Parse GraphQL schema into an object', () => {
   let schema

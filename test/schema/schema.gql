@@ -6,10 +6,10 @@ type Family {
 
 type Me {
   id: ID!
-  email: String
+  email: String 
   username: [String!]!
   fullName: String!
-  result: Float
+  result: Float @deprecated(reason: "Result field")
   phone: [Int]!
   apiKey: String!
   users: [User]!
