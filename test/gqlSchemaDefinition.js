@@ -6,6 +6,7 @@
 const fs = require('fs')
 const path = require('path')
 const { expect } = require('chai')
+const { Kind } = require('graphql')
 const schemaParser = require('../lib/schemaParser')
 
 const schemaCode = fs.readFileSync(path.join(__dirname, 'schema', 'schema.gql'), 'utf8')
@@ -33,53 +34,57 @@ describe('Parse GraphQL schema into an object', () => {
   describe('Type Me', () => {
     it('Schema should have the type Me', () => {
       expect(schema.Me).to.exist
-      expect(schema.Me.type).to.be.eq('ObjectType')
+      expect(schema.Me.type).to.be.eq(Kind.OBJECT_TYPE_DEFINITION)
       expect(schema.Me.description).to.be.eq(undefined)
       expect(schema.Me.fields.length).to.be.gt(0)
       expect(schema.Me.fields.length).to.be.eq(9)
     })
 
     it('Schema should have the properties with the null type and array type', () => {
-      expect(schema.Me.fields).to.have.deep.include({ name: 'id', type: 'ID', noNull: true, isArray: false, arguments: [], noNullArrayValues: false })
-      expect(schema.Me.fields).to.have.deep.include({ name: 'email', type: 'String', noNull: false, isArray: false, arguments: [], noNullArrayValues: false })
-      expect(schema.Me.fields).to.have.deep.include({ name: 'username', type: 'String', noNull: true, isArray: true, arguments: [], noNullArrayValues: true })
-      expect(schema.Me.fields).to.have.deep.include({ name: 'fullName', type: 'String', noNull: true, isArray: false, arguments: [], noNullArrayValues: false })
-      expect(schema.Me.fields).to.have.deep.include({ name: 'phone', type: 'Int', noNull: true, isArray: true, arguments: [], noNullArrayValues: false })
-      expect(schema.Me.fields).to.have.deep.include({ name: 'apiKey', type: 'String', noNull: true, isArray: false, arguments: [], noNullArrayValues: false })
+      expect(schema.Me.fields).to.have.deep.include({ name: 'id', type: 'ID', noNull: true, isArray: false, arguments: [], noNullArrayValues: false, isDeprecated: false })
+      expect(schema.Me.fields).to.have.deep.include({ name: 'email', type: 'String', noNull: false, isArray: false, arguments: [], noNullArrayValues: false, isDeprecated: false })
+      expect(schema.Me.fields).to.have.deep.include({ name: 'username', type: 'String', noNull: true, isArray: true, arguments: [], noNullArrayValues: true, isDeprecated: false })
+      expect(schema.Me.fields).to.have.deep.include({ name: 'fullName', type: 'String', noNull: true, isArray: false, arguments: [], noNullArrayValues: false, isDeprecated: false })
+      expect(schema.Me.fields).to.have.deep.include({ name: 'phone', type: 'Int', noNull: true, isArray: true, arguments: [], noNullArrayValues: false, isDeprecated: false })
+      expect(schema.Me.fields).to.have.deep.include({ name: 'apiKey', type: 'String', noNull: true, isArray: false, arguments: [], noNullArrayValues: false, isDeprecated: false })
+      expect(schema.Me.fields).to.have.deep.include({ name: 'result', type: 'Float', noNull: false, isArray: false, arguments: [], noNullArrayValues: false, isDeprecated: true })
     })
   })
 
   describe('Type User', () => {
     it('Schema should have the type User', () => {
       expect(schema.User).to.exist
-      expect(schema.User.type).to.be.eq('ObjectType')
+      expect(schema.User.type).to.be.eq(Kind.OBJECT_TYPE_DEFINITION)
       expect(schema.User.description).to.be.eq(undefined)
       expect(schema.User.fields.length).to.be.gt(0)
       expect(schema.User.fields.length).to.be.eq(5)
     })
 
     it('Schema should have the properties with the null type and array type', () => {
-      expect(schema.User.fields).to.have.deep.include({ name: 'email', type: 'String', noNull: true, isArray: false, arguments: [], noNullArrayValues: false })
-      expect(schema.User.fields).to.have.deep.include({ name: 'username', type: 'String', noNull: true, isArray: false, arguments: [], noNullArrayValues: false })
-      expect(schema.User.fields).to.have.deep.include({ name: 'fullName', type: 'String', noNull: true, isArray: false, arguments: [], noNullArrayValues: false })
-      expect(schema.User.fields).to.have.deep.include({ name: 'phone', type: 'String', noNull: true, isArray: false, arguments: [], noNullArrayValues: false })
+      expect(schema.User.fields).to.have.deep.include({ name: 'email', type: 'String', noNull: true, isArray: false, arguments: [], noNullArrayValues: false, isDeprecated: false })
+      expect(schema.User.fields).to.have.deep.include({ name: 'username', type: 'String', noNull: true, isArray: false, arguments: [], noNullArrayValues: false, isDeprecated: false })
+      expect(schema.User.fields).to.have.deep.include({ name: 'fullName', type: 'String', noNull: true, isArray: false, arguments: [], noNullArrayValues: false, isDeprecated: false })
+      expect(schema.User.fields).to.have.deep.include({ name: 'phone', type: 'String', noNull: true, isArray: false, arguments: [], noNullArrayValues: false, isDeprecated: false })
     })
   })
 
   describe('Type Query', () => {
     it('Schema should have the type Query with all the queries', () => {
       expect(schema.Query).to.exist
-      expect(schema.Query.type).to.be.eq('ObjectType')
+      expect(schema.Query.type).to.be.eq(Kind.OBJECT_TYPE_DEFINITION)
       expect(schema.Query.description).to.be.eq(undefined)
       expect(schema.Query.fields.length).to.be.gt(0)
       expect(schema.Query.fields.length).to.be.eq(3)
     })
 
     it('Schema should have the properties with the null type and array type', () => {
-      const getUserByUsernameArguments = [{ name: 'username', noNull: true, isArray: false, type: 'String', noNullArrayValues: false }, { name: 'id', noNull: true, isArray: false, type: 'Int', noNullArrayValues: false }]
-      expect(schema.Query.fields).to.have.deep.include({ name: 'getMe', type: 'Me', noNull: false, isArray: false, arguments: [], noNullArrayValues: false })
-      expect(schema.Query.fields).to.have.deep.include({ name: 'getUsers', type: 'User', noNull: true, isArray: true, arguments: [], noNullArrayValues: true })
-      expect(schema.Query.fields).to.have.deep.include({ name: 'getUserByUsername', type: 'User', noNull: false, isArray: false, arguments: getUserByUsernameArguments, noNullArrayValues: false })
+      const getUserByUsernameArguments = [
+        { name: 'username', noNull: true, isArray: false, type: 'String', noNullArrayValues: false, isDeprecated: false },
+        { name: 'id', noNull: true, isArray: false, type: 'Int', noNullArrayValues: false, isDeprecated: false }
+      ]
+      expect(schema.Query.fields).to.have.deep.include({ name: 'getMe', type: 'Me', noNull: false, isArray: false, arguments: [], noNullArrayValues: false, isDeprecated: false })
+      expect(schema.Query.fields).to.have.deep.include({ name: 'getUsers', type: 'User', noNull: true, isArray: true, arguments: [], noNullArrayValues: true, isDeprecated: false })
+      expect(schema.Query.fields).to.have.deep.include({ name: 'getUserByUsername', type: 'User', noNull: false, isArray: false, arguments: getUserByUsernameArguments, noNullArrayValues: false, isDeprecated: false })
     })
   })
 })
