@@ -105,6 +105,16 @@ describe('Parse GraphQL schema arr into an object', () => {
       expect(schema.SearchResult.types).to.includes('Student')
       expect(schema.SearchResult.types).to.includes('Location')
     })
+
+    it('should have types on interface', () => {
+      expect(schema.Student).to.exist
+      expect(schema.Student.types).to.have.length.gt(0)
+      expect(schema.Student.types).to.includes('User')
+
+      expect(schema.Teacher).to.exist
+      expect(schema.Teacher.types).to.have.length.gt(0)
+      expect(schema.Teacher.types).to.includes('User')
+    })
   })
 })
 
