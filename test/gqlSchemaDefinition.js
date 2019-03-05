@@ -107,6 +107,11 @@ describe('Parse GraphQL schema arr into an object', () => {
     })
 
     it('should have types on interface', () => {
+      expect(schema.User).to.exist
+      expect(schema.User.implementedTypes).to.have.length.gt(0)
+      expect(schema.User.implementedTypes).to.includes('Student')
+      expect(schema.User.implementedTypes).to.includes('Teacher')
+
       expect(schema.Student).to.exist
       expect(schema.Student.implementedTypes).to.have.length.gt(0)
       expect(schema.Student.implementedTypes).to.includes('User')
