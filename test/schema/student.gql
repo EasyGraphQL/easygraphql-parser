@@ -1,7 +1,18 @@
-type Student {
+interface User {
+  email: String!
+  username: String!
+}
+
+type Student implements User {
   email: String!
   username: String!
   fullName: String!
+}
+
+type Teacher implements User {
+  email: String!
+  username: String!
+  age: Int!
 }
 
 input StudentInput {
