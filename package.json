@@ -4,7 +4,7 @@
   "description": "Parse GraphQL Schema",
   "main": "index.js",
   "scripts": {
-    "test": "nyc --check-coverage --lines 94 mocha",
+    "test": "nyc --check-coverage --lines 91 mocha",
     "standard": "standard",
     "standard-fix": "standard --fix",
     "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls"
