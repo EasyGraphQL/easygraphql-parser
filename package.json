@@ -4,7 +4,7 @@
   "description": "Parse GraphQL Schema",
   "main": "index.js",
   "scripts": {
-    "test": "nyc --check-coverage --lines 94 mocha",
+    "test": "nyc --check-coverage --lines 91 mocha",
     "standard": "standard",
     "standard-fix": "standard --fix",
     "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls"
@@ -35,13 +35,13 @@
   },
   "license": "MIT",
   "dependencies": {
-    "graphql": "^14.4.0",
     "merge-graphql-schemas": "^1.5.8"
   },
   "peerDependencies": {
     "graphql": "^0.13.0 || ^14.0.0"
   },
   "devDependencies": {
+    "graphql": "^14.4.0",
     "chai": "^4.1.2",
     "coveralls": "^3.0.2",
     "husky": "^3.0.0",
