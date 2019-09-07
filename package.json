@@ -1,6 +1,6 @@
 {
   "name": "easygraphql-parser",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Parse GraphQL Schema",
   "main": "index.js",
   "scripts": {
