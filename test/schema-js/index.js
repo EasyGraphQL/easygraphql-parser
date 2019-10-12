@@ -6,20 +6,20 @@ const CreateUserMutation = require('./mutations/createUser')
 const RootQueryType = new GraphQLObjectType({
   name: 'RootQuery',
   fields: () => ({
-    getUser: GetUserQuery
-  })
+    getUser: GetUserQuery,
+  }),
 })
 
 const RootMutationType = new GraphQLObjectType({
   name: 'RootMutation',
   fields: () => ({
-    createUser: CreateUserMutation
-  })
+    createUser: CreateUserMutation,
+  }),
 })
 
 const schema = new GraphQLSchema({
   query: RootQueryType,
-  mutation: RootMutationType
+  mutation: RootMutationType,
 })
 
 module.exports = schema

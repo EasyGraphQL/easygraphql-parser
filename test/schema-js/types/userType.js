@@ -3,7 +3,7 @@ const {
   GraphQLString,
   GraphQLNonNull,
   GraphQLList,
-  GraphQLID
+  GraphQLID,
 } = require('graphql')
 
 const UserType = new GraphQLObjectType({
@@ -14,9 +14,9 @@ const UserType = new GraphQLObjectType({
       email: { type: GraphQLNonNull(GraphQLString) },
       username: { type: GraphQLNonNull(GraphQLString) },
       fullName: { type: GraphQLNonNull(GraphQLString) },
-      lastNames: { type: GraphQLNonNull(GraphQLList(GraphQLString)) }
+      lastNames: { type: GraphQLNonNull(GraphQLList(GraphQLString)) },
     }
-  }
+  },
 })
 
 module.exports = UserType

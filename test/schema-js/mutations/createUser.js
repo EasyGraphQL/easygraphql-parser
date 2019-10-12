@@ -1,7 +1,7 @@
 const {
   GraphQLInputObjectType,
   GraphQLString,
-  GraphQLNonNull
+  GraphQLNonNull,
 } = require('graphql')
 
 const UserType = require('../types/userType')
@@ -12,14 +12,14 @@ const UserInputType = new GraphQLInputObjectType({
     email: { type: GraphQLNonNull(GraphQLString) },
     username: { type: GraphQLNonNull(GraphQLString) },
     fullName: { type: GraphQLNonNull(GraphQLString) },
-    password: { type: GraphQLNonNull(GraphQLString) }
-  }
+    password: { type: GraphQLNonNull(GraphQLString) },
+  },
 })
 
 module.exports = {
   type: UserType,
   args: {
-    input: { type: new GraphQLNonNull(UserInputType) }
+    input: { type: new GraphQLNonNull(UserInputType) },
   },
   resolve: async (obj, { input }, ctx) => {
     const { email, username, fullName } = input
@@ -27,7 +27,7 @@ module.exports = {
     return {
       email,
       username,
-      fullName
+      fullName,
     }
-  }
+  },
 }
