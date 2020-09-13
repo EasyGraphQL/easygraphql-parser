@@ -38,12 +38,12 @@
     "@graphql-tools/merge": "^6.0.11"
   },
   "peerDependencies": {
-    "graphql": "^0.13.0 || ^14.0.0"
+    "graphql": "^0.13.0 || ^14.0.0 || ^15.0.0"
   },
   "devDependencies": {
     "chai": "^4.1.2",
     "coveralls": "^3.0.2",
-    "graphql": "^14.4.0",
+    "graphql": "^15.3.0",
     "husky": "^3.0.0",
     "mocha": "^6.1.4",
     "nyc": "^14.0.0",
